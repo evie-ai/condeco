@@ -1,0 +1,57 @@
+{
+  "IsError": false,
+  "Data": [
+    {
+      "FloorNumber": "13",
+      "FloorName": "",
+      "ResourceName": "Sentosa",
+      "InternalId": 566,
+      "InternalParentId": 0,
+      "WorkspaceTypeId": 1,
+      "WorkspaceTypeName": "Meeting Room",
+      "extendedDetails": null
+    },
+    {
+      "FloorNumber": "13",
+      "FloorName": "",
+      "ResourceName": "Marina Bay Sands",
+      "InternalId": 567,
+      "InternalParentId": 0,
+      "WorkspaceTypeId": 1,
+      "WorkspaceTypeName": "Meeting Room",
+      "extendedDetails": null
+    },
+    {
+      "FloorNumber": "13",
+      "FloorName": "",
+      "ResourceName": "Gardens by the Bay",
+      "InternalId": 568,
+      "InternalParentId": 0,
+      "WorkspaceTypeId": 1,
+      "WorkspaceTypeName": "Meeting Room",
+      "extendedDetails": null
+    },
+    {
+      "FloorNumber": "13",
+      "FloorName": "",
+      "ResourceName": "Hidden Room 1",
+      "InternalId": 800,
+      "InternalParentId": 0,
+      "WorkspaceTypeId": 1,
+      "WorkspaceTypeName": "Meeting Room",
+      "extendedDetails": null
+    },
+    {
+      "FloorNumber": "13",
+      "FloorName": "",
+      "ResourceName": "Hidden Room 2",
+      "InternalId": 801,
+      "InternalParentId": 0,
+      "WorkspaceTypeId": 1,
+      "WorkspaceTypeName": "Meeting Room",
+      "extendedDetails": null
+    }
+  ],
+  "Status": false,
+  "Message": ""
+}

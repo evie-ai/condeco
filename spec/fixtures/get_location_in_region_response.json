@@ -1,0 +1,35 @@
+{
+  "IsError": false,
+  "Data": [
+    {
+      "LocationAddress": "",
+      "LocationCity": "",
+      "LocationCountry": "",
+      "PostCode": "",
+      "TimeZone": "Singapore Standard Time",
+      "NumberOfFloorsAboveGround": 13,
+      "NumberOfFloorsBelowGround": 0,
+      "IsCostCentreMandatory": false,
+      "IsCCPaymentCostCodeEnabled": false,
+      "LocationGroupMappings": [
+        {
+          "GroupId": 64,
+          "GroupIdExternal": null
+        },
+        {
+          "GroupId": 100,
+          "GroupIdExternal": null
+        },
+        {
+          "GroupId": 108,
+          "GroupIdExternal": null
+        }
+      ],
+      "ResourceName": "Singapore Test",
+      "InternalId": 41,
+      "InternalParentId": 32
+    }
+  ],
+  "Status": false,
+  "Message": ""
+}

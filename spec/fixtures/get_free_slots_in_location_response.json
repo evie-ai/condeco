@@ -1,0 +1,86 @@
+{
+  "freePeriod": [
+    {
+      "locationID": 41,
+      "floorNumber": 13,
+      "resourceID": 567,
+      "workspaceTypeId": 1,
+      "freePeriodSlots": [
+        {
+          "startDateTime": "2022-05-05T09:00:00",
+          "endDateTime": "2022-05-05T10:00:00",
+          "startDateTimeUTC": "2022-05-05T01:00:00",
+          "endDateTimeUTC": "2022-05-05T03:00:00"
+        },
+        {
+          "startDateTime": "2022-05-05T11:00:00",
+          "endDateTime": "2022-05-05T13:00:00",
+          "startDateTimeUTC": "2022-05-05T03:00:00",
+          "endDateTimeUTC": "2022-05-05T05:00:00"
+        },
+        {
+          "startDateTime": "2022-05-05T14:00:00",
+          "endDateTime": "2022-05-05T17:00:00",
+          "startDateTimeUTC": "2022-05-05T06:00:00",
+          "endDateTimeUTC": "2022-05-05T09:00:00"
+        }
+      ]
+    },
+    {
+      "locationID": 41,
+      "floorNumber": 13,
+      "resourceID": 566,
+      "workspaceTypeId": 1,
+      "freePeriodSlots": [
+        {
+          "startDateTime": "2022-05-05T09:00:00",
+          "endDateTime": "2022-05-05T17:00:00",
+          "startDateTimeUTC": "2022-05-05T01:00:00",
+          "endDateTimeUTC": "2022-05-05T09:00:00"
+        }
+      ]
+    },
+    {
+      "locationID": 41,
+      "floorNumber": 13,
+      "resourceID": 800,
+      "workspaceTypeId": 1,
+      "freePeriodSlots": [
+        {
+          "startDateTime": "2022-05-05T09:00:00",
+          "endDateTime": "2022-05-05T17:00:00",
+          "startDateTimeUTC": "2022-05-05T01:00:00",
+          "endDateTimeUTC": "2022-05-05T09:00:00"
+        }
+      ]
+    },
+    {
+      "locationID": 41,
+      "floorNumber": 13,
+      "resourceID": 801,
+      "workspaceTypeId": 1,
+      "freePeriodSlots": [
+        {
+          "startDateTime": "2022-05-05T09:00:00",
+          "endDateTime": "2022-05-05T17:00:00",
+          "startDateTimeUTC": "2022-05-05T01:00:00",
+          "endDateTimeUTC": "2022-05-05T09:00:00"
+        }
+      ]
+    },
+    {
+      "locationID": 41,
+      "floorNumber": 13,
+      "resourceID": 568,
+      "workspaceTypeId": 1,
+      "freePeriodSlots": [
+        {
+          "startDateTime": "2022-05-05T09:00:00",
+          "endDateTime": "2022-05-05T17:00:00",
+          "startDateTimeUTC": "2022-05-05T01:00:00",
+          "endDateTimeUTC": "2022-05-05T09:00:00"
+        }
+      ]
+    }
+  ]
+}
