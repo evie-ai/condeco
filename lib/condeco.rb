@@ -1,3 +1,5 @@
+require 'rest-client'
+require 'active_support/core_ext/object'
 require "condeco/version"
 require "condeco/authenticator"
 require 'condeco/bookings'
