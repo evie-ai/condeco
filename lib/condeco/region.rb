@@ -13,9 +13,9 @@ module Condeco
     API_PATH = "https://developer-api.condecosoftware.com/Developer_SDE/api/V1/regions"
 
     def get(country:)
-      raise InvalidCountryError unless Country.valid?(country)
+      raise InvalidCountryError unless Condeco::Values::Country.valid?(country)
       begin
-        params = {params: {"countryId" => Country.country_id(country)}}
+        params = {params: {"countryId" => Condeco::Values::Country.country_id(country)}}
         response = RestClient.get API_PATH, credential.auth_headers.merge(params)
         JSON.parse(response.body) if response.code == 200
       rescue =>e
