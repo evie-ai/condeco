@@ -25,21 +25,23 @@ module Condeco
       raise ArgumentError("dtstart & dtend should be DateTime object") unless dtstart.is_a?(DateTime) && dtend.is_a?(DateTime)
       begin
         params = {
-          params:
-            {
+
               "locationId" => location_id,
               "startDateTime" => dtstart.rfc3339,
               "endDateTime" => dtend.rfc3339,
               "floorNumber" => floor_id,
-              "resourceType" => MEETING_ROOM_RESOURCE_TYPE
-            }
+              "resourceType" => MEETING_ROOM_RESOURCE_TYPE,
+              "isUTCDateTime" => true
         }
-        response = RestClient.get QUERY_ROOM_API_PATH, credential.auth_headers.merge(params)
+        headers = credential.auth_headers.merge(params: params)
+        response = RestClient.get QUERY_ROOM_API_PATH, headers
         JSON.parse(response.body) if response.code == 200
       rescue =>e
         raise e
       end
     end
+
+    private
 
   end
 end

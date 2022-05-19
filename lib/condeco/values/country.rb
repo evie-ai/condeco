@@ -10,7 +10,7 @@ module Condeco
       end
 
       def self.valid?(country)
-        country.downcase.strip in? COUNTRY_LIST_TO_ID_MAP.keys
+        country.downcase.strip.in? COUNTRY_LIST_TO_ID_MAP.keys
       end
 
       def self.country_id(country)
