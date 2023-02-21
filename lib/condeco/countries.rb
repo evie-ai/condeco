@@ -1,5 +1,5 @@
 module Condeco
-  class Region
+  class Countries
 
     class InvalidCountryError < StandardError
     end
@@ -11,13 +11,12 @@ module Condeco
 
     attr_reader :credential,:endpoint
 
-    API_PATH = "/regions"
+    API_PATH = "/countries"
 
-    def get(country_id:)
+    def get
       begin
-        params = {params: {"countryId" => country_id}}
         url = "#{endpoint}#{API_PATH}"
-        response = RestClient.get url, credential.auth_headers.merge(params)
+        response = RestClient.get url, credential.auth_headers
         JSON.parse(response.body) if response.code == 200
       rescue =>e
         raise e

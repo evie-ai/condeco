@@ -1,17 +1,19 @@
 module Condeco
   class Location
-    def initialize(credential:)
+    def initialize(credential:,endpoint:)
       @credential = credential
+      @endpoint = endpoint
     end
 
-    attr_reader :credential
+    attr_reader :credential, :endpoint
 
-    API_PATH = "https://developer-api.condecosoftware.com/Developer_SDE/api/V1/locations"
+    API_PATH = "/locations"
 
     def get(region:)
       begin
         params = {params: {"regionId" => region}}
-        response = RestClient.get API_PATH, credential.auth_headers.merge(params)
+        url = "#{endpoint}#{API_PATH}"
+        response = RestClient.get url, credential.auth_headers.merge(params)
         JSON.parse(response.body) if response.code == 200
       rescue =>e
         raise e

@@ -1,20 +1,22 @@
 module Condeco
   class Rooms
-    def initialize(credential:)
+    def initialize(credential:,endpoint:)
       @credential = credential
+      @endpoint = endpoint
     end
 
-    attr_reader :credential
+    attr_reader :credential, :endpoint
 
-    DISCOVER_ROOM_API_PATH = "https://developer-api.condecosoftware.com/Developer_SDE/api/V1/rooms"
-    QUERY_ROOM_API_PATH = "https://developer-api.condecosoftware.com/Developer_SDE/api/V1/bookings/freeslots"
+    DISCOVER_ROOM_API_PATH = "/rooms"
+    QUERY_ROOM_API_PATH = "/bookings/freeslots"
 
     MEETING_ROOM_RESOURCE_TYPE = 1
 
     def get(location_id:)
       begin
         params = {params: {"locationId" => location_id}}
-        response = RestClient.get DISCOVER_ROOM_API_PATH, credential.auth_headers.merge(params)
+        url = "#{endpoint}#{DISCOVER_ROOM_API_PATH}"
+        response = RestClient.get url, credential.auth_headers.merge(params)
         JSON.parse(response.body) if response.code == 200
       rescue =>e
         raise e
@@ -34,7 +36,8 @@ module Condeco
               "isUTCDateTime" => true
         }
         headers = credential.auth_headers.merge(params: params)
-        response = RestClient.get QUERY_ROOM_API_PATH, headers
+        url = "#{endpoint}#{QUERY_ROOM_API_PATH}"
+        response = RestClient.get url, headers
         JSON.parse(response.body) if response.code == 200
       rescue =>e
         raise e

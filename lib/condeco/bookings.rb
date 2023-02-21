@@ -1,13 +1,15 @@
 module Condeco
   class Bookings
 
-    def initialize(credential:)
+    # endpoint "https://developer-api.condecosoftware.com/Developer_SDE/api/V1"
+    def initialize(credential:,endpoint:)
       @credential = credential
+      @endpoint = endpoint
     end
 
-    attr_reader :credential
+    attr_reader :credential, :endpoint
 
-    BOOK_ROOM_API_PATH = "https://developer-api.condecosoftware.com/Developer_SDE/api/V1/bookings"
+    BOOK_ROOM_API_PATH = "/bookings"
 
     MEETING_ROOM_RESOURCE_TYPE = 1
 
@@ -23,7 +25,8 @@ module Condeco
         }
         params = {isUTCDateTime: true}
         headers = credential.auth_headers.merge(params: params)
-        response = RestClient.post BOOK_ROOM_API_PATH, payload, headers
+        url = "#{endpoint}#{BOOK_ROOM_API_PATH}"
+        response = RestClient.post url, payload, headers
         JSON.parse(response.body) if response.code.to_s.start_with?("2")
       rescue => e
         raise e
@@ -31,8 +34,8 @@ module Condeco
     end
 
     def get(booking_id:)
-      path = "#{BOOK_ROOM_API_PATH}/#{booking_id}"
-      response = RestClient.get path, credential.auth_headers
+      url = "#{endpoint}#{BOOK_ROOM_API_PATH}/#{booking_id}"
+      response = RestClient.get url, credential.auth_headers
       JSON.parse(response.body)
     end
 
@@ -42,7 +45,8 @@ module Condeco
           "bookingId" => booking_id,
           "userId" => user_id
         }
-        RestClient::Request.execute(method: :delete, url: BOOK_ROOM_API_PATH,
+        url = "#{endpoint}#{BOOK_ROOM_API_PATH}"
+        RestClient::Request.execute(method: :delete, url: url,
           payload: params, headers: credential.auth_headers)
         {message: "Success"}
       rescue => e
@@ -53,7 +57,7 @@ module Condeco
     def update_booking(booking_id:,room_id:, dtstart:, dtend:, user_id:, meeting_title:)
       raise ArgumentError("dtstart & dtend should be DateTime object") unless dtstart.is_a?(DateTime) && dtend.is_a?(DateTime)
 
-      update_path = "#{BOOK_ROOM_API_PATH}/#{booking_id}"
+      update_path = "#{endpoint}#{BOOK_ROOM_API_PATH}/#{booking_id}"
       begin
         payload = {
           "bookingDetails" => {
