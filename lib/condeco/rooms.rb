@@ -14,7 +14,7 @@ module Condeco
 
     def get(location_id:)
       begin
-        params = {params: {"locationId" => location_id}}
+        params = {params: {"locationId" => location_id, extendedDetails: true}}
         url = "#{endpoint}#{DISCOVER_ROOM_API_PATH}"
         response = RestClient.get url, credential.auth_headers.merge(params)
         JSON.parse(response.body) if response.code == 200
