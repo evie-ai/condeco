@@ -13,7 +13,7 @@ module Condeco
 
     MEETING_ROOM_RESOURCE_TYPE = 1
 
-    def book_room(room_id:, dtstart:, dtend:, user_id:, meeting_title:)
+    def book_room(room_id:, dtstart:, dtend:, user_id:, meeting_title:, private: false)
       raise ArgumentError("dtstart & dtend should be DateTime object") unless dtstart.is_a?(DateTime) && dtend.is_a?(DateTime)
       begin
         payload = {
@@ -21,7 +21,8 @@ module Condeco
           "startDateTime" => format_date_time(dtstart),
           "endDateTime" => format_date_time(dtend),
           "meetingTitle" => meeting_title,
-          "userId" => user_id
+          "userId" => user_id,
+          "privateMeeting" => private
         }
         params = {isUTCDateTime: true}
         headers = credential.auth_headers.merge(params: params)
@@ -54,7 +55,7 @@ module Condeco
       end
     end
 
-    def update_booking(booking_id:,room_id:, dtstart:, dtend:, user_id:, meeting_title:)
+    def update_booking(booking_id:,room_id:, dtstart:, dtend:, user_id:, meeting_title:, private: false)
       raise ArgumentError("dtstart & dtend should be DateTime object") unless dtstart.is_a?(DateTime) && dtend.is_a?(DateTime)
 
       update_path = "#{endpoint}#{BOOK_ROOM_API_PATH}/#{booking_id}"
@@ -65,6 +66,7 @@ module Condeco
             "startDate" => format_date_time(dtstart),
             "endDate" => format_date_time(dtend),
             "meetingTitle" => meeting_title,
+            "privateMeeting" => private
           },
           "userId" => user_id
         }
